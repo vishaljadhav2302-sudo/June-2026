@@ -1,0 +1,6 @@
+___
+- hosts: localhost
+  tasks:
+    - name: check this file
+      shell: ls
+
