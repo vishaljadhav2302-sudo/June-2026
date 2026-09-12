@@ -1,4 +1,4 @@
- name: Deploying application using rolling update
+name: Deploying application using rolling update
 
 on:
   push:
