@@ -1,0 +1,36 @@
+#akms
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: batch-june-deployment
+
+spec:
+  replicas: 5
+
+  selector:
+    matchLabels:
+      batch: june-2026
+
+  template:
+    metadata:
+      labels:
+        batch: june-2026
+
+    spec:
+      containers:
+        - name: nginx-webserver
+          image: nginx
+
+          ports:
+            - containerPort: 80
+
+          volumeMounts:
+            - name: nginx-storage
+              mountPath: /usr/share/nginx/html
+
+      volumes:
+        - name: nginx-storage
+          persistentVolumeClaim:
+            claimName: pvc-june-2026
